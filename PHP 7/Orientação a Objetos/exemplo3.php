@@ -15,8 +15,32 @@
 			$this->id=$id;
 			$this->id_client=$id_cliente;
 			$this->titulo=$titulo;
-			$this->valr = $valor;
+			$this->valor = $valor;
 
+		}
+		public function exibeAssinatura()
+		{
+			$html = "<p>";
+			$html .= "<br>ID: $this->id</br> ";
+			$html .= "</p>";
+
+			$html .= "<p>";
+			$html .= "<br>ID Cliente: $this->id_client</br> ";
+			$html .= "</p>";
+
+			$html .= "<p>";
+			$html .= "<br>Titulo: $this->titulo </br> ";
+			$html .= "</p>";
+
+			$html .= "<p>";
+			$html .= "Valor: ". $this->trataValor($this->valor);/* dentra das aspas duplar nao é preciso concatenar. Fora das aspas duplas, sim.*/
+			$html .= "</p>";
+
+			echo $html;
+		}
+		private function trataValor($valor)
+		{
+			return "R$".number_format($valor,2,',','.');/* 2 é quantidade de casas após a vírgula. Onde há . (ponto) troca-se por vírgula*/
 		}
 
 		public function setId($valor)
@@ -63,8 +87,8 @@
 	$AssinaturaUsuario->setValor(75.9);
 	$AssinaturaUsuario->setTitulo("Ass. Vip");
 	$AssinaturaUsuario->setIdCliente(4);*/
-	var_dump($AssinaturaUsuario);
+	//var_dump($AssinaturaUsuario);
 
-
+	$AssinaturaUsuario->exibeAssinatura();
 
 ?>
