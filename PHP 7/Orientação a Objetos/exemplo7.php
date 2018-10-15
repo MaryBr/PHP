@@ -1,19 +1,16 @@
 <?php
 	
-	class siteInfo
-	{
-		public static $nome = "Meu site";
-		public static $descricao = "Site de vendas";
-	}
-	
-	class Util
-	{
-		
-		public static function trataValor($valor)
-		{
-			return "R$".number_format($valor,2,',','.');/* 2 é quantidade de casas após a vírgula. Onde há . (ponto) troca-se por vírgula*/
+	// Carregando todos os arquivos/classes externos
+	spl_autoload_register(function ($class) {
+		if(file_exists($class . '.php')){
+    		include  $class . '.php';
 		}
-	}
+    	elseif (file_exists('arquivos/'. $class . '.php')) { //inclui arquivos de outros diretorios
+    		include 'arquivos/'.  $class . '.php';
+    	}
+	});
+
+	
 
 	interface IUsuario/*a interface informa quais métodos devem ser implementados*/
 	{
