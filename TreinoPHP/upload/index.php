@@ -36,6 +36,6 @@
 			<input type="submit" name="enviar_formulario">
 
 		</form>
-
+		*/
 	</body>
 </html>
